@@ -70,6 +70,12 @@ module.exports = {
             }, {
                 test: /\.html$/i,
                 use: 'html-loader'
+            }, {
+                test: /_redirects/,
+                type: 'asset/resource',
+                generator: {
+                    filename: '[name][ext]'
+                }
             }
         ]
     },

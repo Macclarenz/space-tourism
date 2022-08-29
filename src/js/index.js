@@ -1,3 +1,6 @@
+// this is for deployment in netlify for the react-router to work
+import '../_redirects'
+
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
