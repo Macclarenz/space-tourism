@@ -11,10 +11,6 @@ import store from './app/store'
 
 server()
 
-// fetch('/api/technology')
-//     .then(res => res.json())
-//     .then(jsonRes => console.log(jsonRes))
-
 const root = createRoot(document.querySelector('.outer-container'))
 
 function render() {

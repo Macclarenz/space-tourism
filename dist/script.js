@@ -76897,10 +76897,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_server__WEBPACK_IMPORTED_MODULE_4__["default"])(); // fetch('/api/technology')
-//     .then(res => res.json())
-//     .then(jsonRes => console.log(jsonRes))
-
+(0,_server__WEBPACK_IMPORTED_MODULE_4__["default"])();
 var root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(document.querySelector('.outer-container'));
 
 function render() {
