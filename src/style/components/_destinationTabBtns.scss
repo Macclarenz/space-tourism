@@ -1,0 +1,47 @@
+@use '../abstracts/' as abs;
+
+.destination-btn-container {
+    @include abs.flex(center, center, row, nowrap, 1.25rem);
+
+    .destination-tab-btn {
+        @include abs.resetInput(pointer);
+        position: relative;
+        padding-block: 0.75em;
+
+        &::before {
+            content: '';
+            background-color: abs.$white;
+            display: block;
+            opacity: 0.4;
+            height: 3px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            transform: scaleX(0);
+            transition: all 400ms ease-out;
+        }
+
+        &:hover::before {
+            transform: scaleX(1);
+        }
+
+        &.tab-active::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+// tablet
+@media (min-width: abs.$tablet) {
+    .destination-btn-container {
+        gap: 2.25rem;
+    }
+}
+
+// laptop and desktop
+@media (min-width: abs.$laptop) {
+    .destination-btn-container {
+        justify-content: flex-start;
+    }
+}

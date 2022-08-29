@@ -1,0 +1,36 @@
+// colors
+$dark-blue: hsl(230deg, 35%, 7%);
+$pale-blue: hsl(231, 77%, 90%);
+$white: hsl(0, 0%, 100%);
+$border-color: hsla(0, 0%, 100%, 0.4);
+
+// queries
+$mobile: 375px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1440px;
+
+// background image
+$home: (
+    mobile: url('../assets/home/background-home-mobile.jpg'),
+    tablet: url('../assets/home/background-home-tablet.jpg'),
+    desktop: url('../assets/home/background-home-desktop.jpg')
+);
+
+$destination: (
+    mobile: url('../assets/destination/background-destination-mobile.jpg'),
+    tablet: url('../assets/destination/background-destination-tablet.jpg'),
+    desktop: url('../assets/destination/background-destination-desktop.jpg')
+);
+
+$crew: (
+    mobile: url('../assets/crew/background-crew-mobile.jpg'),
+    tablet: url('../assets/crew/background-crew-tablet.jpg'),
+    desktop: url('../assets/crew/background-crew-desktop.jpg')
+);
+
+$technology: (
+    mobile: url('../assets/technology/background-technology-mobile.jpg'),
+    tablet: url('../assets/technology/background-technology-tablet.jpg'),
+    desktop: url('../assets/technology/background-technology-desktop.jpg')
+)

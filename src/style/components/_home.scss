@@ -1,0 +1,43 @@
+@use '../abstracts/' as abs;
+@use './exploreBtn';
+
+.home-container {
+    @include abs.centerElement(85%);
+    text-align: center;
+
+    .heading-1 {
+        margin-block: 1.5rem;
+    }
+
+    .heading-5 {
+        margin-top: 1.5rem;
+    }
+}
+
+// tablet
+@media (min-width: abs.$tablet) {
+    .home-container {
+        padding-block: 4.5rem;
+
+        .home-detail-container {
+            @include abs.centerElement(68%);
+        }
+    }
+}
+
+// laptop and desktop
+@media (min-width: abs.$laptop) {
+    .home-container {
+        @include abs.flex(space-between, center, row);
+        @include abs.centerElement(74%);
+        text-align: initial;
+        margin-top: 12vh;
+        padding: 0;
+
+        .home-detail-container {
+            margin: 0;
+            margin-left: 0.5em;
+            width: 43%;
+        }
+    }
+}

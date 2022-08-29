@@ -1,0 +1,23 @@
+@use './vars' as *;
+
+@function setBackgroundImage($page-name, $width) {
+    @if $width == $mobile {
+        @return switchBgImage($page-name, mobile);
+    } @if $width == $tablet {
+        @return switchBgImage($page-name, tablet);
+    } @else {
+        @return switchBgImage($page-name, desktop);
+    }
+}
+
+@function switchBgImage($page-name, $query) {
+    @if $page-name == 'destination' {
+        @return map-get($destination, $query);
+    } @if $page-name == 'crew'{
+        @return map-get($crew, $query);
+    } @if $page-name == 'technology' {
+        @return map-get($technology, $query);
+    } @else {
+        @return map-get($home, $query);
+    }
+}

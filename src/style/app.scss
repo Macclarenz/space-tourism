@@ -1,0 +1,65 @@
+@use './abstracts/fonts';
+@use './components/navBar';
+@use './components/header';
+@use './components/home';
+@use './components/destination';
+@use './components/technology';
+@use './components/crew';
+@use './abstracts/' as abs;
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.outer-container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 500ms ease;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+}
+
+// mobile
+@media (max-width: calc(abs.$tablet - 1px)) {
+    .outer-container {
+        &[current-page] { background-image: abs.setBackgroundImage('home', abs.$mobile); }
+        &[current-page = destination] { background-image: abs.setBackgroundImage('destination', abs.$mobile); } 
+        &[current-page = crew] { background-image: abs.setBackgroundImage('crew', abs.$mobile); } 
+        &[current-page = technology] { background-image: abs.setBackgroundImage('technology', abs.$mobile); }
+    }
+}
+
+// tablet
+@media (min-width: abs.$tablet) {
+    .outer-container {
+        &[current-page] { background-image: abs.setBackgroundImage('home', abs.$tablet); }
+        &[current-page = destination] { background-image: abs.setBackgroundImage('destination', abs.$tablet); } 
+        &[current-page = crew] { background-image: abs.setBackgroundImage('crew', abs.$tablet); } 
+        &[current-page = technology] { background-image: abs.setBackgroundImage('technology', abs.$tablet); }
+    }
+
+    :where(.destination-container, .crew-container, .technology-container) .page-name {
+        @include abs.centerElement(90%);
+        text-align: left;
+    }
+}
+
+@media (min-width: abs.$desktop) {
+    .outer-container {
+        &[current-page] { background-image: abs.setBackgroundImage('home', abs.$desktop); }
+        &[current-page = destination] { background-image: abs.setBackgroundImage('destination', abs.$desktop); } 
+        &[current-page = crew] { background-image: abs.setBackgroundImage('crew', abs.$desktop); } 
+        &[current-page = technology] { background-image: abs.setBackgroundImage('technology', abs.$desktop); }
+    }
+}
+
+
+
+

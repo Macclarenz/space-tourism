@@ -1,0 +1,40 @@
+@use '../abstracts/' as abs;
+
+#homeExploreBtn {
+    @include abs.flex(center, center, column);
+    @include abs.centerElement(initial);
+    background-color: abs.$white;
+    border-radius: 50%;
+    color: abs.$dark-blue;
+    font-size: 20px;
+    font-family: abs.$bellefair;
+    font-weight: abs.$bellefair-regular;
+    text-decoration: none;
+    text-transform: uppercase;
+    height: 7.5em;
+    width: 7.5em;
+    margin-top: 3.5em;
+    transition: all 400ms ease-out;
+    outline: 0em solid abs.$white;
+
+    &:hover {
+        $outline-bg-color: rgba(255, 255, 255, 0.4);
+        outline: 2em solid $outline-bg-color;
+    }
+}
+
+// tablet
+@media (min-width: abs.$tablet) {
+    #homeExploreBtn {
+        font-size: 32px;
+        margin-top: 4.5em;
+    }
+}
+
+// laptop and desktop
+@media (min-width: abs.$laptop) {
+    #homeExploreBtn {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}

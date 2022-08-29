@@ -1,0 +1,33 @@
+@use '../abstracts/' as abs;
+
+
+.header-container {
+    @include abs.flex(space-between, center, row);
+    @include abs.centerElement(85%);
+    padding-block: 1.5em;
+
+    #navHamburgerBtn {
+        @include abs.resetInput(pointer);
+
+        &[disabled] {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: abs.$tablet) {
+    .header-container {
+        @include abs.centerElement(100%);
+        padding-block: 0;
+
+        .header-logo {
+            margin-left: 5%;
+        }
+    }
+}
+
+@media (min-width: abs.$desktop) {
+    .header-container {
+        padding-block: 2em;
+    }
+}

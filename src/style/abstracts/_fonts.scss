@@ -1,0 +1,129 @@
+@use './vars' as *;
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700&family=Barlow:wght@300;400&family=Bellefair&display=swap');
+$bellefair: 'Bellefair', serif;
+$barlow: 'Barlow', sans-serif;
+$barlow-condensed: 'Barlow Condensed', sans-serif;
+
+$bellefair-regular: 400;
+$barlow-regular: 400;
+$barlow-condensed-regular: 400;
+$barlow-condensed-bold: 700;
+
+:root {
+    .heading-1,
+    .heading-2,
+    .heading-3,
+    .heading-4,
+    .heading-5,
+    .subheading-1,
+    .subheading-2,
+    .nav-text {
+        color: $white;
+    }
+
+    .heading-1,
+    .heading-2,
+    .heading-3,
+    .heading-4,
+    .heading-5,
+    .subheading-1,
+    .subheading-2,
+    .nav-text {
+        text-transform: uppercase;
+    }
+
+    .heading-1,
+    .heading-2,
+    .heading-3,
+    .heading-4,
+    .subheading-1,
+    .technology-container .technology-circle-btn {
+        font-family: $bellefair;
+        font-weight: $bellefair-regular;
+    }
+
+    .heading-5,
+    .subheading-2,
+    .nav-text {
+        font-family: $barlow-condensed;
+        font-weight: $barlow-condensed-regular;
+    }
+
+    .heading-5 {
+        letter-spacing: 4.75px;
+    }
+
+    .subheading-2 {
+        color: $pale-blue;
+        letter-spacing: 2.35px;
+    }
+
+    .nav-text {
+        letter-spacing: 2.7px;
+        color: $pale-blue;
+    }
+
+    .body-text {
+        color: $pale-blue;
+        font-family: $barlow;
+        font-weight: $barlow-regular;
+    }
+
+    :where(.destination-container, .crew-container, .technology-container) .page-index {
+        color: $white;
+        opacity: 0.25;
+        margin-right: 0.5rem;
+        font-weight: $barlow-condensed-bold;
+    }
+}
+
+// mobile
+@media (max-width: calc($tablet - 1px)) {
+    :root {
+        .heading-1 {font-size: 80px;}
+        .heading-2 {font-size: 56px;}
+        .heading-3 {font-size: 24px;}
+        .heading-4 {font-size: 16px;}
+        .heading-5 {font-size: 16px;}
+        .subheading-1 {font-size: 28px;}
+        .subheading-2 {font-size: 14px;}
+        .nav-text {font-size: 14px;}
+        .nav-container .nav-text {font-size: 16px;}
+        .technology-container .technology-circle-btn {font-size: 16px;}
+        .body-text {font-size: 15px; line-height: 25px;}
+    }
+}
+
+// tablet
+@media (min-width: $tablet) {
+    :root {
+        .heading-1 {font-size: 150px;}
+        .heading-2 {font-size: 80px;}
+        .heading-3 {font-size: 40px;}
+        .heading-4 {font-size: 24px;}
+        .heading-5 {font-size: 20px;}
+        .subheading-1 {font-size: 28px;}
+        .subheading-2 {font-size: 14px;}
+        .nav-text {font-size: 14px;}
+        .destination-btn-container .nav-text,
+        .technology-container .nav-text {font-size: 16px;}   
+        .technology-container .technology-circle-btn {font-size: 24px;}
+        .body-text {font-size: 16px; line-height: 28px;}
+    }
+}
+
+// desktop
+@media (min-width: $desktop) {
+    :root {
+        .heading-1 {font-size: 150px;}
+        .heading-2 {font-size: 100px;}
+        .heading-3 {font-size: 56px;}
+        .heading-4 {font-size: 32px;}
+        .heading-5 {font-size: 28px;}
+        .subheading-1 {font-size: 28px;}
+        .subheading-2 {font-size: 14px;}
+        .nav-text {font-size: 16px;}
+        .technology-container .technology-circle-btn {font-size: 32px;}
+        .body-text {font-size: 18px; line-height: 32px;}
+    }
+}

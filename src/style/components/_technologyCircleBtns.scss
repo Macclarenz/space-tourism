@@ -1,0 +1,45 @@
+@use '../abstracts/' as abs;
+
+.technology-btn-container {
+    @include abs.flex(center, center, row, nowrap, 1rem);
+
+    .technology-circle-btn {
+        $border-white: rgba(255, 255, 255, 0.4);
+
+        @include abs.resetInput(pointer);
+        @include abs.flex(center, center);
+        border: 1px solid $border-white;
+        border-radius: 50%;
+        color: abs.$white;
+        padding: 1em;
+        height: 2.5em;
+        width: 2.5em;
+        transition: all 400ms ease;
+
+        &:hover {
+            border-color: abs.$white;
+        }
+
+        &.circle-active {
+            background-color: abs.$white;
+            border-color: abs.$white;
+            color: abs.$dark-blue;
+        }
+    }
+}
+
+// laptop
+@media (min-width: abs.$laptop) {
+    .technology-btn-container {
+        @include abs.flex(center, center, row, nowrap, 1em);
+        align-self: flex-start;
+    }
+}
+
+// desktop
+@media (min-width: abs.$desktop) {
+    .technology-btn-container {
+        @include abs.flex(center, center, column, nowrap, 1em);
+        align-self: initial;
+    }
+}

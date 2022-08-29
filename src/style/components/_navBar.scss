@@ -1,0 +1,150 @@
+@use '../abstracts/' as abs;
+
+.nav-container {
+    @include abs.fallbackBlurBg(80px);
+    padding-block: 2em;
+    width: 100%;
+    counter-reset: index;
+
+    & > * {
+        transition: all 300ms ease;
+    }
+
+    #navCloseBtn {
+        display: none
+    }
+}
+
+.nav-container[mobile] {
+    @include abs.flex(flex-start, flex-start, column, nowrap, 0.5em);
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 0;
+    transition: all 400ms ease-out;
+    z-index: 100;
+
+    & > * {
+        opacity: 0;
+    }
+
+    &[open-nav] {
+        width: 70%;
+
+        & > * {
+            opacity: 1;
+            transition-delay: 400ms;
+        }
+    }
+
+    #navCloseBtn {
+        @include abs.resetInput(pointer);
+        display: block;
+        margin-bottom: 2em;
+        margin-right: 2em;
+        align-self: flex-end;
+    }
+
+    .nav-link {
+        padding-left: 4em;
+        text-decoration: none;
+        position: relative;
+        padding-block: 0.5em;
+        width: 100%;
+
+        &::before {
+            counter-increment: index - 1;
+            content: counter(index) + " " + attr(data-index);
+            color: abs.$white;
+            position: absolute;
+            left: 2em;
+        }
+
+        &::after {
+            display: block;
+            content: '';
+            background-color: abs.$white;
+            height: 100%;
+            width: 3px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: scaleY(0);
+            transition: all 300ms ease-out;
+        }
+
+        &:hover::after {
+            opacity: 0.4;
+            transform: scaleY(1);
+        }
+
+        &.active::after {
+            transform: scaleY(1);
+        }
+    }
+}
+
+@media (min-width: abs.$tablet) {
+    .nav-container {
+        @include abs.flex(center, center, row, nowrap, 2.5em);
+        background-color: rgba(255, 255, 255, 0.04);
+        padding-block: 0;
+        width: min(60%, 700px);
+
+        .nav-link {
+            text-decoration: none;
+            padding-block: 2.5em;
+            position: relative;
+
+            &::after {
+                content: '';
+                display: block;
+                background-color: abs.$white;
+                width: 100%;
+                height: 3px;
+                position: absolute;
+                bottom: 0;
+                transform: scaleX(0);
+                transition: all 300ms ease-out;
+            }
+
+            &.active::after {
+                transform: scaleX(1);
+            }
+
+            &:hover::after {
+                opacity: 0.4;
+                transform: scaleX(1);
+            }            
+        }
+    }
+}
+
+@media (min-width: abs.$desktop) {
+    .nav-container {
+        gap: 3em;
+        width: min(56%);
+        position: relative;
+
+        &::before {
+            content: '';
+            background-color: abs.$white;
+            height: 1px;
+            width: 58%;
+            position: absolute;
+            opacity: 0.4;
+            top: 50%;
+            bottom: 50%;
+            right: 96%;
+        }
+
+        .nav-link {
+            &::before {
+                counter-increment: index - 1;
+                content: counter(index) + " " + attr(data-index);
+                color: abs.$white;
+            }
+        }
+    }
+}

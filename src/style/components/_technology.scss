@@ -1,0 +1,97 @@
+@use '../abstracts/' as abs;
+@use './technologyCircleBtns';
+
+.technology-container {
+    text-align: center;
+    padding-block: 1rem;
+
+    .technology-img {
+        @include abs.centerElement(100%);
+        display: block;
+        margin-block: 2rem;
+        min-height: 170px;
+        object-fit: cover
+    }
+
+    .technology-col-1 {
+        @include abs.centerElement(min(440px, 85%));
+
+        .technology-detail-container {
+            margin-top: 1.75rem;
+
+            .technology-name {
+                margin-block: 0.75rem 1.25rem;
+            }
+        }
+    }
+}
+
+// tablet
+@media (min-width: abs.$tablet) {
+    .technology-container {
+        padding-block: 3rem 7rem;
+
+        .technology-img {
+            width: min(768px, 100%);
+            margin-block: 4rem  3.5rem;
+        }
+    }
+}
+
+// laptop
+@media (min-width: abs.$laptop) {
+    .technology-container {
+        @include abs.grid(auto 1fr, 1fr minmax(300px, auto), center, center, 5rem);
+        text-align: initial;
+        padding-left: 13.5%;
+        padding-top: 4rem;
+
+        .page-name {
+            grid-column: 1 / -1;
+            width: 100%;
+        }
+
+        .technology-img {
+            grid-column-start: 2;
+            height: clamp(300px, 100%, 527px);
+            width: clamp(300px, 100%, 515px);
+        }
+
+        .technology-col-1 {
+            @include abs.flex(flex-start, center, column, nowrap, 3em);
+            width: 100%;
+            grid-column-start: 1;
+            grid-row-start: 2;
+
+            .technology-detail-container {
+                margin-top: 0;
+
+                .technology-description {
+                    width: clamp(300px, 66%, 445px);
+                }    
+            }
+        }
+    }
+}
+
+// desktop
+@media (min-width: abs.$desktop) {
+    .technology-container {
+        gap: 0;
+
+        .technology-img {
+            margin-top: 1em;
+        }
+
+        .technology-col-1 {
+            @include abs.flex(center, center, row, nowrap, 3em);
+            margin-top: -1em;
+
+            .technology-detail-container {
+                .technology-description {
+                    width: 85%;
+                }    
+            }
+        }
+    }
+}

@@ -1,0 +1,111 @@
+@use '../abstracts/' as abs;
+@use './destinationTabBtns';
+
+.destination-container {
+    padding-block: 1rem;
+    text-align: center;
+
+    .destination-img {
+        @include abs.centerElement(min(300px, 55%));
+        display: block;
+        padding-block: 2.5rem;
+        pointer-events: none;
+    }
+
+    .destination-col-2 {
+        @include abs.centerElement(85%);
+    
+        .destination-detail-container {
+            .destination-name {
+                margin-block: 1.25rem 0.75rem;
+            }
+        }
+
+        .distance-travel-container {
+            $border-color: rgba(255, 255, 255, 0.25);
+            border-top: 1px solid $border-color;
+            margin-top: 2rem;
+            padding-block: 2rem;
+
+            & > *:not(:first-child) {
+                margin-top: 1.5rem;
+            }
+
+            :where(.destination-distance-text, .destination-travel-text) {
+                margin-top: 0.75rem;
+            }
+        }
+    }
+}
+
+// tablet
+@media (min-width: abs.$tablet) {
+    .destination-container {
+        padding-block: 3rem;
+
+        .destination-img {
+            margin-top: 1.5rem;
+        }
+
+        .destination-col-2 {
+            @include abs.centerElement(85%);
+        
+            .destination-detail-container {
+                @include abs.centerElement(88%);
+
+                .destination-name {
+                    margin-block: 1.75rem 0.75rem;
+                }
+            }
+    
+            .distance-travel-container {
+                @include abs.flex(space-evenly, center, row, nowrap, 1rem);
+                padding-block: 1.75em;
+                margin-top: 3.25rem;
+
+                & > *:not(:first-child) {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
+// laptop to desktop
+@media (min-width: abs.$laptop) {
+    .destination-container {
+        @include abs.grid(auto 1fr, 1fr 1fr, start, center, 2.5rem 0);
+        @include abs.centerElement(73%);
+        text-align: initial;
+        padding-top: 4rem;
+
+        .page-name {
+            grid-column: 1 / -1;
+            width: 100%;
+        }
+
+        .destination-img {
+            width: min(100%, 445px);
+        }
+
+        .destination-col-2 {
+            align-self: start;
+            margin-left: 7rem;
+            width: 82%;
+
+            .destination-detail-container {
+                width: 100%;
+                
+                .destination-name {
+                    margin-block: 2rem 1rem;
+                }
+            }
+
+            .distance-travel-container {
+                margin-top: 3.5rem;
+                justify-content: flex-start;
+                gap: 5rem;
+            }
+        }
+    }
+}
